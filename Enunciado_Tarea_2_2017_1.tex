@@ -1,0 +1,116 @@
+\documentclass[12pt]{article}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[spanish]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{xfrac}
+\usepackage{hyperref}
+\usepackage{parskip}
+\usepackage{booktabs}
+
+
+
+\newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\topmargin -0.8in \textheight 9.4in \oddsidemargin 0.05in \textwidth
+6.4in
+
+%\input{tcilatex}
+
+\newcommand{\dsum}{\displaystyle\sum}
+\renewcommand{\labelenumi}{{(\alph{enumi})}}
+\renewcommand{\labelenumii}{{\arabic{enumii}.}}
+
+
+\hyphenation{corres-pon-dien-te in-me-dia-ta-men-te con-jun-to pre-si-den-cial}
+
+\begin{document}
+
+
+
+\hspace{-1.6cm}\includegraphics[height=2.5cm]{udp_FAC_ingenieria-06.jpg}
+\hfill 
+\raisebox{7mm}{\begin{raggedright}  
+\begin{tabular}{l}
+\texttt{\textbf{Curso:}} \texttt{CII2750 Optimizaci\'on }\\
+\texttt{\textbf{Profesores: }}\texttt{Juan Pablo Cavada, Fernando Feres}\\
+\phantom{\texttt{\textbf{Profesores: }}}\texttt{Fernando Paredes}\\
+\\
+\\
+\end{tabular}
+\end{raggedright}}
+
+
+
+\begin{center}
+
+\noindent \textbf{Trabajo Computacional 2}\\
+\end{center}
+\vspace{0.2in}
+\noindent \textbf{{\footnotesize \textsc{Fecha de entrega: 18 de junio de 2017%
+\textbf{\hfill \textsc{Semestre Oto\~no 2017}} }}} \newline
+\hrule\vspace{0.2in}
+
+La empresa Agroindustrial Patagonia (AGROPAT), ubicada en Punta Arenas, se dedica principalmente a comprar lana de oveja producida en estancias de la Región de Magallanes y luego exportarla a empresas textiles en el extranjero. AGROPAT tiene cerrado 36 contratos para la próxima zafra. El problema que debe resolver es planificar cuando transportar la lana desde las estancias a Punta Arenas y prepararla para su exportación. AGROPAT debe exportar toda lana antes de 60 días desde el inicio de la fecha de planificación ($t=0$). \\
+
+Para transportar la lana se debe contratar camiones. En la ciudad hay disponibles una cantidad limitada de camiones adecuados para el flete. Cada uno con su propio precio por kilómetro y tiene capacidad (en kilos). Varios camiones pueden ir a una misma estancia y cada camión puede hacer un único viaje al día. Asuma que todos los camiones tienen disponibilidad todos los días y todos los viajes toman un día en ir y volver. \\
+
+En cada estancia se conoce naturalmente la cantidad de kilos comprados y su distancia en kilómetros de Punta Arenas. La lana de una estancia se puede retirar cualquier día, pero toda la lana debe ser retirada el mismo día de una estancia. \\
+
+Una vez en Punta Arenas, la empresa debe cargar la lana desde los camiones a contenedores que serán luego enviados al puerto. Para esta exportación se utilizan únicamente contenedores de 20 pies \textit{high cube} que soportan hasta 24 toneladas. Para aprovechar el máximo de la capacidad de los contenedores la lana es compactada en fardos (reduciendo considerablemente su volumen), utilizando para ello una prensa hidráulica. En AGROPAT tienen una prensa que puede procesar el equivalente de hasta 2 contenedores al día. Todos los contenedores de exportación deben ser visados por el Servicio Agrícola y Ganadero, esto implica que los contenedores deben ser cerrados el mismo día en que se preparan. Los contenedores cerrados son enviados al puerto donde quedan listos para ser encargados. \\
+
+Como la empresa no tiene una bodega, debe compactar y guardar toda la lana que recibe el día siguiente en que al que se va a buscar, es decir, la lana que se va a buscar el día $t$, debe ser compactada el día $t+1$. En caso de ser necesario, se puede arrendar una segunda prensa hidráulica a un costo que varía por día y se cobra por contenedor completo.\\
+
+La gerente de AGROPAT ha diseñado el siguiente modelo de optimización para coordinar los días y los camiones que irán a buscar la lana a las estancias:
+
+\begin{align}
+& \min \sum_{i \in I} \sum_{k \in K} \sum_{t \in T} D_i C_k x_{i,k,t} + \sum_{t \in T} P_1 v_t + P_2 w_t & \\
+s.a.\\
+&\sum_{k \in K} x(i,k,t) \leq 1 					&\forall {k \in K},{t \in T} \\
+&\sum_{t \in T} y_{i,t} = 1 						&\forall {i \in I} \\
+&\sum_{k \in K} F_k x_{i,k,t} \ge L_i y_{i,t} 		&\forall {i \in I},{t \in T} \\
+&\sum_{i \in I} y_{i,T} = 0										\\
+&\sum_{i \in I} L_i y_{i,t-1}  \leq  U(v_t + w_t)	&\forall {t \in T}, t > 1 \\
+&v_t \leq N 								&\forall {t \in T} \\
+&x_{i,k,t} \in \{0,1\}						&\forall {i \in I},{k \in K},{t \in T}   \\
+&y_{i,t} \in \{0,1\}						&\forall {i \in I},{t \in T}   \\
+&v_t \in \mathbb{Z}^+						&\forall {t \in T} \\
+&w_t \in \mathbb{Z}^+						&\forall {t \in T}
+\end{align}
+
+\begin{enumerate}
+\item (1.0 puntos) Explique detalladamente el modelo propuesto, indicando que representa cada variable y parámetro. Indique que modela la función objetivo y cada una de las restricciones.
+\item (2.5 puntos) Programe y resuelve el modelo propuesto en (a) usando AMPL y los datos entregados en el archivo anexado. Presente y discuta los resultados obtenidos detalladamente.
+\item (2.5 puntos) La empresa está estudiando la posibilidad de arrendar una bodega en Punta Arenas en la que se puede guardar lana sin compactar. Modifique el modelo de la parte (a) para integrar esta nueva opción. Asuma despreciable el costo de almacenamiento. Utilizando el nuevo modelo responda ¿Cuánto estaría dispuesto a pagar en total por el arriendo de esta bodega durante la temporada? 
+\item BONO: (1.0 puntos) Modifique y resuelva el modelo la parte (a) para encontrar la planificación que minimiza el tiempo total necesario para exportar toda la lana. 
+
+\end{enumerate}
+
+\section*{Instrucciones}
+
+\subsubsection*{Conformaci\'on de grupos}
+
+Los grupos deben estar formados por hasta 4 estudiantes. 
+
+\subsection*{Software}
+
+Puede descargar el software AMPL necesario para resolver la tarea desde el siguiente enlace \url{https://1drv.ms/f/s!AnHEA5Z3z9A_gZIQOjMfM14cfYHcXw}
+
+\subsubsection*{Entrega}
+
+La entrega de los trabajos debe realizarse hasta las 23.59 del d\'\i en el sitio \url{https://form.jotformz.com/71416324815655}. Solamente se aceptar\'an entregas por ese medio. \\
+ 
+\noindent Cada grupo deber\'a entregar:
+\begin{itemize}
+\item Un \textbf{informe autocontenido}, que deberá incluir (como mínimo): un \textbf{resumen ejecutivo} de máximo una plana describiendo el problema enfrentado explicaci\'on de la \textbf{metodología utilizada}, los    \textbf{resultados} solicitados explicando cada uno de los modelos propuestos y sus \textbf{an\'alisis conclusiones} principales de cada caso. Los informes deben ser entregados en formato .pdf, .doc o .docx.
+
+\item %Una o más \textbf{hojas de c\'alculo} (en formato .xlx o .xlxs) donde se encuentren los modelos programados y correctamente configurados. %Si se utilizan otros software de otimizaci\'on (AMPL, OPL, LINGO, GAMS, NEOS, etc) se deberán incluir \textbf{todos los códigos necesarios para su ejecución} y las instrucciones necesarias. Se evaluarán las entregas ``tal cual'' fueron recibidas. 
+Los c\'odigos de los modelos, archivos de datos y cualquier otro archivo necesario para su ejecución. Todos los archivos deben estar ordenados y adecuadamente comentados. En especial deben estar correctamente identificados parámetros, variables, función objetivo y restricciones.
+\end{itemize}
+
+Se evaluar\'a el orden, la claridad y la capacidad de s\'\i ntesis del informe adem\'as de los resultados obtenidos por los modelos. Modelos que no funcionen o no entreguen soluciones factibles ser\'an calificados con nota 1{,}0. Trabajos que no puedan ser le\'\i dos correctamente o vengan en formatos distintos a los indicados, ser\'an calificados con nota final 1{,}0.
+
+
+\end{document}
+
