@@ -1,0 +1,16 @@
+Algunos consejos:
+
+1. 	Comiencen por un problema pequeño (por ejemplo 5 estancias, 2 camiones, 7 días)
+2. 	Revisen que la solución para ese caso tiene sentido, si puede resuélvalo "a mano".
+3. 	El problema completo puede demorar muuucho rato encontrar el optimo del problema 
+	(dependiendo del PC en que corra), así que fije mientras no estén seguros que el modelo
+	esta correcto fijen un limite de tiempo al solver (o de precisión). 
+4.	Les pasamos un archivo de scrip tarea2.run que tiene programado un scrip que fija el solver,
+	tiempo de iteración, y escribe las soluciones a un archivo de texto para que las puedan ver.
+	Solo tienen que reemplazar con los datos de su modelo donde corresponda.
+5.	Si no llegan al optimo por tiempo, indiquen con cuanto tiempo y tolerancia (mingap) resolvieron 
+	el problema y analicen esos resultados.
+
+6. Be Happy!! *_*
+
+

@@ -1,0 +1,27 @@
+#Cargar el modelo
+model modelo.mod;
+data datos.dat;
+
+#opciones del solver
+option solver gurobi;
+
+/*comentar una de las siguientes opciones,
+la primera resuelve hasta 5 minutos, la segunda resuelve hasta el optimo, la forma general es:
+option gurobi_options 'logfile = XXX mipgap YYY timelim ZZZ';
+donde: XXX : nombre archivo de salida, YYY distancia al optimo para parar, ZZZ limite de tiempo (s)
+*/
+
+#option gurobi_options 'logfile = solverlog.txt mipgap 0.01 timelim 300';
+option gurobi_options 'logfile = solverlog.txt mipgap 0 timelim 1e6';
+
+solve;
+
+/* Graba la salida a un archivo 'salida.txt' (solo los valores no ceros)
+esto asume que mantuvieron los nombres de las variables originales del problema,
+*/
+display {i in estancias, k in camiones, t in dias : arrienda[i,k,t] > 0} arrienda[i,k,t];
+display {i in estancias, t in dias: retira[i,t] > 0} retira[i,t];
+option log_file salida.txt;
+display {i in estancias, k in camiones, t in dias : arrienda[i,k,t] > 0} arrienda[i,k,t];
+display {i in estancias, t in dias: retira[i,t] > 0} retira[i,t];
+close log_file;
