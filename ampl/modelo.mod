@@ -19,7 +19,7 @@ param precio_c{k in CAMIONES};      #C_k
 param precio_agropat{t in DIAS};  #P_1t
 param precio_arriendo{t in DIAS}; #P_2t
 param cap_camion{k in CAMIONES};   #F_k
-param lana_estancia{i in DIAS};   #L_i
+param lana_estancia{i in ESTANCIAS};   #L_i
 
 
 #--------------------------------
@@ -29,8 +29,8 @@ param lana_estancia{i in DIAS};   #L_i
 
 var arrienda{i in ESTANCIAS, k in CAMIONES, t in DIAS } binary;  #x_ikt
 var retira{i in ESTANCIAS, t in DIAS} binary;  #y_it
-var contenedores_agropat{t in DIAS};     #v_t
-var contenedores_arriendo{t in DIAS};     #w_t
+var contenedores_agropat{t in DIAS} >= 0;     #v_t
+var contenedores_arriendo{t in DIAS} >= 0;     #w_t
 
 #--------------------------------
 #--------------------------------
@@ -52,7 +52,7 @@ subject to todo_dia{i in ESTANCIAS}:
   sum{t in DIAS}retira[i,t] = 1;
 subject to capacidad_minima{i in ESTANCIAS, t in DIAS}:
   sum{k in CAMIONES} cap_camion[k] * arrienda[i,k,t] >= lana_estancia[i] * retira[i,t];
-subject to no_ultimo_dia{t in DIAS}:
+subject to no_ultimo_dia{t in DIAS: t = 7}:
   sum{i in ESTANCIAS} retira[i,t] = 0;
-subject to compactar_lana{t in DIAS}:
+subject to compactar_lana{t in DIAS: t > 1}:
   sum{i in ESTANCIAS} lana_estancia[i] * retira[i, t - 1] <= cap_contenedor * (contenedores_agropat[t] + contenedores_arriendo[t]);

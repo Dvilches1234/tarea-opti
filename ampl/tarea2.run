@@ -19,9 +19,10 @@ solve;
 /* Graba la salida a un archivo 'salida.txt' (solo los valores no ceros)
 esto asume que mantuvieron los nombres de las variables originales del problema,
 */
-display {i in estancias, k in camiones, t in dias : arrienda[i,k,t] > 0} arrienda[i,k,t];
-display {i in estancias, t in dias: retira[i,t] > 0} retira[i,t];
-option log_file salida.txt;
-display {i in estancias, k in camiones, t in dias : arrienda[i,k,t] > 0} arrienda[i,k,t];
-display {i in estancias, t in dias: retira[i,t] > 0} retira[i,t];
+display {i in ESTANCIAS, k in CAMIONES, t in DIAS : arrienda[i,k,t] > 0} arrienda[i,k,t];
+display {i in ESTANCIAS, t in DIAS: retira[i,t] > 0} retira[i,t];
+option log_file "salida.txt";
+display {i in ESTANCIAS, k in CAMIONES, t in DIAS : arrienda[i,k,t] > 0} arrienda[i,k,t];
+display {i in ESTANCIAS, t in DIAS: retira[i,t] > 0} retira[i,t];
+option log_file "";
 close log_file;

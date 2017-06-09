@@ -1,8 +1,8 @@
 
 set ESTANCIAS:=
-Mayo_6
+Mayo6
 Alquinta
-Armonía
+Armonia
 Aurora
 Bellavista
 Buitreras
@@ -16,22 +16,22 @@ c4
 c5;
 
 set DIAS:=
-d1
-d2
-d3
-d4
-d5
-d6
-d7;
+1
+2
+3
+4
+5
+6
+7;
 
 param p_agropat_max := 2;
 
 param cap_contenedor := 24000;
 
 param distancia :=
-Mayo_6	254
+Mayo6	254
 Alquinta	562
-Armonía	325
+Armonia	325
 Aurora	41
 Bellavista	361
 Buitreras	540
@@ -45,22 +45,22 @@ c4	641
 c5	721;
 
 param precio_agropat :=
-d1 25000
-d2 25000
-d3 25000
-d4 25000
-d5 25000
-d6 35000
-d7 5000;
+1 25000
+2 25000
+3 25000
+4 25000
+5 25000
+6 35000
+7 5000;
 
 param precio_arriendo :=
-d1 75000
-d2 75000
-d3 75000
-d4 75000
-d5 75000
-d6 105000
-d7 150000;
+1 75000
+2 75000
+3 75000
+4 75000
+5 75000
+6 105000
+7 150000;
 
 param cap_camion :=
 c1	15000
@@ -70,10 +70,10 @@ c4	15000
 c5	15000;
 
 param lana_estancia :=
-Mayo_6	5860
+Mayo6	5860
 Alquinta	86025
-Armonía	6354
+Armonia	6354
 Aurora	42990
 Bellavista	98818
 Buitreras	75059
-California	15528
+California	15528 ;
