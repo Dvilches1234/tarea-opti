@@ -56,7 +56,7 @@ subject to todo_dia{i in ESTANCIAS}:
   sum{k in CAMIONES} cap_camion[k]*arrienda[i,k,t] >= lana_estancia[i]*retira[i,t];
 
 subject to no_ultimo_dia:
-  sum{i in ESTANCIAS} retira[i,7] == 0;
+  sum{i in ESTANCIAS} retira[i,60] == 0;
 
 subject to compactar_lana{t in DIAS: t > 1}:
   sum{i in ESTANCIAS} lana_estancia[i]*retira[i, t - 1] <= cap_contenedor*(contenedores_agropat[t] + contenedores_arriendo[t]);

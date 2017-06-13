@@ -46,20 +46,20 @@ minimize z:
  #RESTRICCIONES
  #--------------------------------
 
-subject to camion_dia {i in ESTANCIAS, t in DIAS}:
+subject to camion_dia {i in ESTANCIAS, t in DIAS}: #2
     sum{k in CAMIONES} arrienda[i,k,t] <= 1;
 
-subject to todo_dia{i in ESTANCIAS}:
+subject to todo_dia{i in ESTANCIAS}: #3
   sum{t in DIAS}retira[i,t] == 1;
 
-subject to capacidad_minima{i in ESTANCIAS, t in DIAS}:
+subject to capacidad_minima{i in ESTANCIAS, t in DIAS}:  #4
   sum{k in CAMIONES} cap_camion[k] * arrienda[i,k,t] >= lana_estancia[i] * retira[i,t];
 
-subject to no_ultimo_dia{t in DIAS: t = 7}:
-  sum{i in ESTANCIAS} retira[i,t] == 0;
+subject to no_ultimo_dia: #5
+  sum{i in ESTANCIAS} retira[i,7] == 0;
 
-subject to compactar_lana{t in DIAS: t > 1}:
+subject to compactar_lana{t in DIAS: t > 1}: #6
   sum{i in ESTANCIAS} lana_estancia[i] * retira[i, t - 1] <= cap_contenedor * (contenedores_agropat[t] + contenedores_arriendo[t]);
 
-subject to maximo_dos{t in DIAS}:
+subject to maximo_dos{t in DIAS}: #7
   contenedores_agropat[t] <= p_agropat_max;

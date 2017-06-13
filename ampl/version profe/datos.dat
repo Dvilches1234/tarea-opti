@@ -3,13 +3,43 @@ data; #Faltaba esta linea
 set ESTANCIAS:=
 Mayo6
 Alquinta
-Armonia
+Armonía
 Aurora
 Bellavista
 Buitreras
-California;
-
+California
+Camerón
+ChinaCreek
+Cerritos
+ElTrébol
+El26
+Florida
+Fortuna
+LagunaLarga
+LasCharas
+LasGolondrinas
+Kampenaike
+LosAbuelos
+LosAlamos
+LosCoipos
+LosNiños
+MariaIsabel
+Lola
+Nevada
+PuntaDelgada
+RioChico
+RioGrande
+Pamela
+SanIsidro
+SantaBárbara
+Rosario
+Serena
+TresArrollos
+TresHermanos
+Timaukel
+;
 set CAMIONES:=
+
 c1
 c2
 c3
@@ -17,7 +47,20 @@ c4
 c5
 c6
 c7
-c8;
+c8
+c9
+c10
+c11
+c12
+c13
+c14
+c15
+c16
+c17
+c18
+c19
+c20
+;
 
 set DIAS:=
 1
@@ -26,20 +69,105 @@ set DIAS:=
 4
 5
 6
-7;
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+;
 
 param p_agropat_max := 2;
 
 param cap_contenedor := 24000;
 
 param distancia :=
+
 Mayo6	254
 Alquinta	562
-Armonia	325
+Armonía	325
 Aurora	41
 Bellavista	361
 Buitreras	540
-California	513;
+California	513
+Camerón	39
+ChinaCreek	284
+El26	446
+Cerritos	295
+ElTrébol	435
+Florida	47
+Fortuna	209
+Kampenaike	492
+LagunaLarga	455
+LasCharas	169
+LasGolondrinas	411
+Lola	425
+LosAbuelos	38
+LosAlamos	347
+LosCoipos	126
+LosNiños	270
+MariaIsabel	249
+Nevada	75
+Pamela	329
+PuntaDelgada	178
+RioChico	588
+RioGrande	102
+Rosario	598
+SanIsidro	552
+SantaBárbara	265
+Serena	125
+Timaukel	125
+TresArrollos	342
+TresHermanos	410
+;
 
 param precio_c :=
 c1	494
@@ -47,18 +175,85 @@ c2	554
 c3	615
 c4	641
 c5	721
-c6 6666
-c7 6666
-c8 6666;
+c6	808
+c7	855
+c8	882
+c9	888
+c10	902
+c11	942
+c12	1142
+c13	1202
+c14	1256
+c15	1263
+c16	1296
+c17	1409
+c18	1443
+c19	1463
+c20	1470
+;
 
 param precio_agropat :=
-1 25000
-2 25000
-3 25000
-4 25000
-5 25000
-6 35000
-7 5000;
+1	25000
+2	25000
+3	25000
+4	25000
+5	25000
+6	35000
+7	50000
+8	25000
+9	25000
+10	25000
+11	25000
+12	25000
+13	35000
+14	50000
+15	25000
+16	25000
+17	25000
+18	25000
+19	25000
+20	35000
+21	50000
+22	25000
+23	25000
+24	25000
+25	25000
+26	25000
+27	35000
+28	50000
+29	25000
+30	25000
+31	25000
+32	25000
+33	25000
+34	35000
+35	50000
+36	25000
+37	25000
+38	25000
+39	25000
+40	25000
+41	35000
+42	50000
+43	25000
+44	25000
+45	25000
+46	25000
+47	25000
+48	35000
+49	50000
+50	25000
+51	25000
+52	25000
+53	25000
+54	25000
+55	35000
+56	50000
+57	25000
+58	25000
+59	25000
+60	25000
+;
 
 param precio_arriendo :=
 1 75000
@@ -67,7 +262,61 @@ param precio_arriendo :=
 4 75000
 5 75000
 6 105000
-7 150000;
+7 150000
+8	75000
+9	75000
+10	75000
+11	75000
+12	75000
+13	105000
+14	150000
+15	75000
+16	75000
+17	75000
+18	75000
+19	75000
+20	105000
+21	150000
+22	75000
+23	75000
+24	75000
+25	75000
+26	75000
+27	105000
+28	150000
+29	75000
+30	75000
+31	75000
+32	75000
+33	75000
+34	105000
+35	150000
+36	75000
+37	75000
+38	75000
+39	75000
+40	75000
+41	105000
+42	150000
+43	75000
+44	75000
+45	75000
+46	75000
+47	75000
+48	105000
+49	150000
+50	75000
+51	75000
+52	75000
+53	75000
+54	75000
+55	105000
+56	150000
+57	75000
+58	75000
+59	75000
+60	75000
+;
 
 param cap_camion :=
 c1	15000
@@ -78,13 +327,56 @@ c5	15000
 c6	300000
 c7	300000
 c8	300000
+c9	23000
+c10	23000
+c11	23000
+c12	23000
+c13	23000
+c14	23000
+c15	23000
+c16	40000
+c17	40000
+c18	40000
+c19	40000
+c20	40000
+
 ;
 
 param lana_estancia :=
 Mayo6	5860
 Alquinta	86025
-Armonia	6354
+Armonía	6354
 Aurora	42990
 Bellavista	98818
 Buitreras	75059
-California	15528 ;
+California	15528
+Camerón	18426
+Cerritos	8770
+ChinaCreek	8520
+El26	7126
+ElTrébol	108198
+Florida	48517
+Fortuna	42750
+Kampenaike	26015
+LagunaLarga	21132
+LasCharas	113778
+LasGolondrinas	9201
+Lola	5700
+LosAbuelos	44530
+LosAlamos	23991
+LosCoipos	10948
+LosNiños	14107
+MariaIsabel	45119
+Nevada	25446
+Pamela	4268
+PuntaDelgada	120135
+RioChico	39287
+RioGrande	5871
+Rosario	8500
+SanIsidro	7837
+SantaBárbara	62145
+Serena	6182
+Timaukel	31074
+TresArrollos	6158
+TresHermanos	18298
+;
