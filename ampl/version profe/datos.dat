@@ -1,3 +1,4 @@
+data; #Faltaba esta linea
 
 set ESTANCIAS:=
 Mayo6
@@ -6,8 +7,7 @@ Armonia
 Aurora
 Bellavista
 Buitreras
-California;;
-
+California;
 
 set CAMIONES:=
 c1
@@ -39,18 +39,17 @@ Armonia	325
 Aurora	41
 Bellavista	361
 Buitreras	540
-California	513
-;
+California	513;
+
 param precio_c :=
 c1	494
 c2	554
 c3	615
 c4	641
 c5	721
-c6	808
-c7	855
-c8	882
-;
+c6 6666
+c7 6666
+c8 6666;
 
 param precio_agropat :=
 1 25000
@@ -76,9 +75,10 @@ c2	15000
 c3	15000
 c4	15000
 c5	15000
-c6	15000
-c7	15000
-c8	23000;
+c6	300000
+c7	300000
+c8	300000
+;
 
 param lana_estancia :=
 Mayo6	5860
@@ -87,5 +87,4 @@ Armonia	6354
 Aurora	42990
 Bellavista	98818
 Buitreras	75059
-California	15528
-;
+California	15528 ;

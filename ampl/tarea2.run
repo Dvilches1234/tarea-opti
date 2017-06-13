@@ -24,5 +24,4 @@ display {i in ESTANCIAS, t in DIAS: retira[i,t] > 0} retira[i,t];
 option log_file "salida.txt";
 display {i in ESTANCIAS, k in CAMIONES, t in DIAS : arrienda[i,k,t] > 0} arrienda[i,k,t];
 display {i in ESTANCIAS, t in DIAS: retira[i,t] > 0} retira[i,t];
-option log_file "";
 close log_file;

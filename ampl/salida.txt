@@ -1,0 +1,5 @@
+arrienda[i,k,t]; #empty
+
+retira[i,t]; #empty
+
+ampl: 

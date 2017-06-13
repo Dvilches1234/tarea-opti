@@ -29,8 +29,8 @@ param lana_estancia{i in ESTANCIAS};   #L_i
 
 var arrienda{i in ESTANCIAS, k in CAMIONES, t in DIAS } binary;  #x_ikt
 var retira{i in ESTANCIAS, t in DIAS} binary;  #y_it
-var contenedores_agropat{t in DIAS} >= 0;     #v_t
-var contenedores_arriendo{t in DIAS} >= 0;     #w_t
+var contenedores_agropat{t in DIAS} integer >= 0;     #v_t
+var contenedores_arriendo{t in DIAS} integer >= 0;     #w_t
 
 #--------------------------------
 #--------------------------------
@@ -46,20 +46,20 @@ minimize z:
  #RESTRICCIONES
  #--------------------------------
 
-subject to camion_dia {i in ESTANCIAS, t in DIAS}:
+ subject to camion_dia {i in ESTANCIAS, t in DIAS}:
     sum{k in CAMIONES} arrienda[i,k,t] <= 1;
 
 subject to todo_dia{i in ESTANCIAS}:
-  sum{t in DIAS}retira[i,t] == 1;
+  sum{t in DIAS }retira[i,t] == 1; #COMPARADOR ES == no =
 
-subject to capacidad_minima{i in ESTANCIAS, t in DIAS}:
-  sum{k in CAMIONES} cap_camion[k] * arrienda[i,k,t] >= lana_estancia[i] * retira[i,t];
+ subject to capacidad_minima{i in ESTANCIAS, t in DIAS}:
+  sum{k in CAMIONES} cap_camion[k]*arrienda[i,k,t] >= lana_estancia[i]*retira[i,t];
 
-subject to no_ultimo_dia{t in DIAS: t = 7}:
-  sum{i in ESTANCIAS} retira[i,t] == 0;
+subject to no_ultimo_dia:
+  sum{i in ESTANCIAS} retira[i,7] == 0;
 
 subject to compactar_lana{t in DIAS: t > 1}:
-  sum{i in ESTANCIAS} lana_estancia[i] * retira[i, t - 1] <= cap_contenedor * (contenedores_agropat[t] + contenedores_arriendo[t]);
+  sum{i in ESTANCIAS} lana_estancia[i]*retira[i, t - 1] <= cap_contenedor*(contenedores_agropat[t] + contenedores_arriendo[t]);
 
-subject to maximo_dos{t in DIAS}:
-  contenedores_agropat[t] <= p_agropat_max;
+subject to NUEVA {t in DIAS} :
+	contenedores_agropat[t] <= p_agropat_max;
