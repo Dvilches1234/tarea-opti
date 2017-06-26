@@ -1,0 +1,153 @@
+z = 17151200
+
+sum{i in ESTANCIAS, k in CAMIONES, t in DIAS} distancia[i]*precio_c[k]*
+  arrienda[i,k,t] = 14826200
+
+sum{t in DIAS} (precio_agropat[t]*contenedores_agropat[t] +
+  precio_arriendo[t]*contenedores_arriendo[t]) = 2325000
+
+arrienda[i,k,t] [*,c1,*]
+:                1   8  14  15  16  18  21  28  30  31  32  35  42  43  44  46 :=
+Alquinta         .   .   .   .   1   .   .   .   .   .   .   .   .   .   .   .
+Armon├¡a          .   1   .   .   .   .   .   .   .   .   .   .   .   .   .   .
+Cerritos         .   .   .   .   .   .   .   .   .   .   .   .   1   .   .   .
+ChinaCreek       .   .   .   .   .   1   .   .   .   .   .   .   .   .   .   .
+El26             .   .   .   .   .   .   .   .   .   1   .   .   .   .   .   .
+Fortuna          .   .   .   1   .   .   .   .   .   .   .   .   .   .   .   .
+Kampenaike       .   .   1   .   .   .   .   .   .   .   .   .   .   .   .   .
+LasGolondrinas   .   .   .   .   .   .   .   .   .   .   .   .   .   1   .   .
+Lola             .   .   .   .   .   .   .   .   .   .   .   .   .   .   1   .
+LosAbuelos       .   .   .   .   .   .   1   .   .   .   .   .   .   .   .   .
+LosNi├▒os         .   .   .   .   .   .   .   1   .   .   .   .   .   .   .   .
+Mayo6            .   .   .   .   .   .   .   .   .   .   .   1   .   .   .   .
+Pamela           .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   1
+Rosario          .   .   .   .   .   .   .   .   1   .   .   .   .   .   .   .
+SanIsidro        .   .   .   .   .   .   .   .   .   .   1   .   .   .   .   .
+TresArrollos     1   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .
+
+:             50  51  57    :=
+ElTr├®bol       1   .   .
+LosAlamos      .   .   1
+PuntaDelgada   .   1   .
+
+ [*,c16,*]
+:              1   8  16  28  31  32  35  42  50  51    :=
+Alquinta       .   .   1   .   .   .   .   .   .   .
+Bellavista     .   .   .   1   .   .   .   .   .   .
+Buitreras      .   1   .   .   .   .   .   .   .   .
+ElTr├®bol       .   .   .   .   .   .   .   .   1   .
+Florida        .   .   .   .   .   .   1   .   .   .
+LasCharas      1   .   .   .   .   .   .   .   .   .
+PuntaDelgada   .   .   .   .   .   .   .   .   .   1
+RioChico       .   .   .   .   1   .   .   .   .   .
+SantaB├írbara   .   .   .   .   .   .   .   1   .   .
+Timaukel       .   .   .   .   .   1   .   .   .   .
+
+ [*,c17,*]
+:              1   8  16  28  50  51    :=
+Alquinta       .   .   1   .   .   .
+Bellavista     .   .   .   1   .   .
+Buitreras      .   1   .   .   .   .
+ElTr├®bol       .   .   .   .   1   .
+LasCharas      1   .   .   .   .   .
+PuntaDelgada   .   .   .   .   .   1
+
+ [*,c2,*]
+:              1   8  14  15  18  21  30  35  43  50  51  57    :=
+ElTr├®bol       .   .   .   .   .   .   .   .   .   1   .   .
+Florida        .   .   .   .   .   .   .   1   .   .   .   .
+Fortuna        .   .   .   1   .   .   .   .   .   .   .   .
+Kampenaike     .   .   1   .   .   .   .   .   .   .   .   .
+LasCharas      1   .   .   .   .   .   .   .   .   .   .   .
+LosAbuelos     .   .   .   .   .   1   .   .   .   .   .   .
+LosAlamos      .   .   .   .   .   .   .   .   .   .   .   1
+LosCoipos      .   .   .   .   1   .   .   .   .   .   .   .
+Nevada         .   .   .   .   .   .   1   .   .   .   .   .
+PuntaDelgada   .   .   .   .   .   .   .   .   .   .   1   .
+RioGrande      .   1   .   .   .   .   .   .   .   .   .   .
+Serena         .   .   .   .   .   .   .   .   1   .   .   .
+
+ [*,c3,*]
+:             15  21  30  51    :=
+Fortuna        1   .   .   .
+LosAbuelos     .   1   .   .
+Nevada         .   .   1   .
+PuntaDelgada   .   .   .   1
+
+ [*,c8,*]
+:              1  14  24  28  35  42  44  46  51    :=
+Aurora         .   .   .   .   .   .   .   1   .
+Bellavista     .   .   .   1   .   .   .   .   .
+California     .   .   .   .   1   .   .   .   .
+Camer├│n        .   .   .   .   .   .   .   .   1
+LagunaLarga    .   1   .   .   .   .   .   .   .
+LasCharas      1   .   .   .   .   .   .   .   .
+MariaIsabel    .   .   1   .   .   .   .   .   .
+SantaB├írbara   .   .   .   .   .   1   .   .   .
+TresHermanos   .   .   .   .   .   .   1        24  46    :=
+Aurora        .   1
+MariaIsabel   1   .
+;
+
+retira[i,t] [*,*]
+:                1   8  14  15  16  18  21  24  28  30  31  32  35  42  43  44 :=
+Alquinta         .   .   .   .   1   .   .   .   .   .   .   .   .   .   .   .
+Armonía          .   1   .   .   .   .   .   .   .   .   .   .   .   .   .   .
+Bellavista       .   .   .   .   .   .   .   .   1   .   .   .   .   .   .   .
+Buitreras        .   1   .   .   .   .   .   .   .   .   .   .   .   .   .   .
+California       .   .   .   .   .   .   .   .   .   .   .   .   1   .   .   .
+Cerritos         .   .   .   .   .   .   .   .   .   .   .   .   .   1   .   .
+ChinaCreek       .   .   .   .   .   1   .   .   .   .   .   .   .   .   .   .
+El26             .   .   .   .   .   .   .   .   .   .   1   .   .   .   .   .
+Florida          .   .   .   .   .   .   .   .   .   .   .   .   1   .   .   .
+Fortuna          .   .   .   1   .   .   .   .   .   .   .   .   .   .   .   .
+Kampenaike       .   .   1   .   .   .   .   .   .   .   .   .   .   .   .   .
+LagunaLarga      .   .   1   .   .   .   .   .   .   .   .   .   .   .   .   .
+LasCharas        1   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .
+LasGolondrinas   .   .   .   .   .   .   .   .   .   .   .   .   .   .   1   .
+Lola             .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   1
+LosAbuelos       .   .   .   .   .   .   1   .   .   .   .   .   .   .   .   .
+LosCoipos        .   .   .   .   .   1   .   .   .   .   .   .   .   .   .   .
+LosNiños         .   .   .   .   .   .   .   .   1   .   .   .   .   .   .   .
+MariaIsabel      .   .   .   .   .   .   .   1   .   .   .   .   .   .   .   .
+Mayo6            .   .   .   .   .   .   .   .   .   .   .   .   1   .   .   .
+Nevada           .   .   .   .   .   .   .   .   .   1   .   .   .   .   .   .
+RioChico         .   .   .   .   .   .   .   .   .   .   1   .   .   .   .   .
+RioGrande        .   1   .   .   .   .   .   .   .   .   .   .   .   .   .   .
+Rosario          .   .   .   .   .   .   .   .   .   1   .   .   .   .   .   .
+SanIsidro        .   .   .   .   .   .   .   .   .   .   .   1   .   .   .   .
+SantaBárbara     .   .   .   .   .   .   .   .   .   .   .   .   .   1   .   .
+Serena           .   .   .   .   .   .   .   .   .   .   .   .   .   .   1   .
+Timaukel         .   .   .   .   .   .   .   .   .   .   .   1   .   .   .   .
+TresArrollos     1   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .
+TresHermanos     .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   1
+
+:             46  50  51  57    :=
+Aurora         1   .   .   .
+Camerón        .   .   1   .
+ElTrébol       .   1   .   .
+LosAlamos      .   .   .   1
+Pamela         1   .   .   .
+PuntaDelgada   .   .   1   .
+;
+
+contenedores_agropat[t] [*] :=
+ 1 0    7 0   13 0   19 1   25 2   31 2   37 0   43 2   49 0   55 0
+ 2 2    8 0   14 0   20 0   26 0   32 2   38 0   44 1   50 0   56 0
+ 3 0    9 2   15 2   21 0   27 0   33 2   39 0   45 1   51 2   57 0
+ 4 0   10 0   16 2   22 2   28 0   34 0   40 0   46 0   52 2   58 1
+ 5 0   11 0   17 2   23 0   29 2   35 0   41 0   47 2   53 0   59 0
+ 6 0   12 0   18 0   24 0   30 0   36 2   42 0   48 0   54 0   60 0
+;
+
+contenedores_arriendo[t] [*] :=
+ 1 0    7 0   13 0   19 0   25 0   31 0   37 0   43 1   49 0   55 0
+ 2 3    8 0   14 0   20 0   26 0   32 0   38 0   44 0   50 0   56 0
+ 3 0    9 2   15 0   21 0   27 0   33 0   39 0   45 0   51 3   57 0
+ 4 0   10 0   16 0   22 0   28 0   34 0   40 0   46 0   52 4   58 0
+ 5 0   11 0   17 2   23 0   29 3   35 0   41 0   47 0   53 0   59 0
+ 6 0   12 0   18 0   24 0   30 0   36 1   42 0   48 0   54 0   60 0
+;
+
+ampl: 36 1   42 0   48 0   54 0   60 0
+;
